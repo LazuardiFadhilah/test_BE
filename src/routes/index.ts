@@ -22,8 +22,15 @@ router.get("/ping", (req: Request, res: Response) => {
 router.use("/example", RoutesRegistry.ExampleRoutes)
 
 
+// ROUTE BE TEST
+router.use("/users", RoutesRegistry.UserRoutes)
+router.use("/uploads", RoutesRegistry.UploadRoutes)
+router.use("/products", RoutesRegistry.ProductRoutes)
+
+
 router.all("*", (req: Request, res: Response) => {
   return response_not_found(res);
 });
+
 
 export default router;

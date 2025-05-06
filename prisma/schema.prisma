@@ -11,3 +11,28 @@ datasource db {
 }
 
 // Declare schemas here
+model User {
+  id String @id @default(uuid())
+  first_name String
+  last_name String
+  phone_number String
+  country String
+  email String @unique
+  password String
+}
+
+model ProcessTask {
+  id       String @id @default(uuid())
+  fileUrl String
+  status String @default("pending")
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
+
+model Product {
+  id        String   @id @default(uuid())
+  name      String
+  price     Float
+  stock     Int
+  createdAt DateTime @default(now())
+}
